@@ -1,18 +1,21 @@
 import bpy
 import math
 
-i = 0
-j = 0
+# initializing variables
+x = 0
+y = 0
 
 amount_objects = len(bpy.context.selected_objects)
-max_i = math.sqrt(amount_objects)
+max_x = math.sqrt(amount_objects)
 
+# amount of separation between objects. 
+# CHANGE THIS
 separation = 1
 
 for obj in bpy.context.selected_objects:
-    if i >= max_i:
-        i = 0
-        j += separation
-    obj.location.x = i
-    obj.location.y = j
-    i += separation
+    if x >= max_x * separation:
+        x = 0
+        y += separation
+    obj.location.x = x
+    obj.location.y = y
+    x += separation
